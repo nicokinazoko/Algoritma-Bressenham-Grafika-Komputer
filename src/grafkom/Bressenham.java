@@ -203,7 +203,7 @@ public class Bressenham extends Applet implements ActionListener{
         y2                          =   Integer.parseInt(field_y2.getText());
         
         //mengecek apakah x1 > x2
-        //jika iya maka lakukan sesuai algoritma bressenham
+        //jika iya maka lakukan pertukaran nilai agar nilai x1 lebih kecil dari x2 
         if(x1 > x2)
         {
             tmp                     =   x1;

@@ -154,6 +154,19 @@ public class DDA extends Applet implements ActionListener{
         y1                          =   Integer.parseInt(field_y1.getText());
         y2                          =   Integer.parseInt(field_y2.getText());
         
+        //mengecek apakah x1 > x2
+        //jika iya maka lakukan pertukaran nilai agar nilai x1 lebih kecil dari x2 
+        
+        if(x1 > x2)
+        {
+            tmp                     =   x1;
+            x1                      =   x2;
+            x2                      =   tmp;
+            tmp                     =   y1;
+            y1                      =   y2;
+            y2                      =   tmp;
+        }        
+        
         int x                       =   x1 ;
         int y                       =   y1;
         int y_gambar;
