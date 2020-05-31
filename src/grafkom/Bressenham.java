@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class Grafkom extends Applet implements ActionListener{
+public class Bressenham extends Applet implements ActionListener{
     //definisikan JFrame untuk GUI
     JFrame jFrame               =   new JFrame("Garis Bressenham");
     
@@ -29,13 +29,11 @@ public class Grafkom extends Applet implements ActionListener{
     //membuat button untuk memproses data input
     JButton buttonProses        =   new JButton("Proses");
     
-
     //deklarasi variabel yang akan digunakan
-    int x1,x2,y1,y2,p,xc,yc,tmp,dx,dy;
+    int x1,x2,y1,y2,p,xc,yc,tmp,dx,dy,step,x_inc,y_inc,xk,yk;
 
-    
     //method baru untuk membuat kanvas 
-    public Grafkom(){
+    public Bressenham(){
         //set lokasi dari frame 
         jFrame.setLocation(300,100);
         
@@ -112,7 +110,7 @@ public class Grafkom extends Applet implements ActionListener{
 
         jFrame.show();
         
-        
+        setVisible(true);
         
 }
         @Override
@@ -143,11 +141,58 @@ public class Grafkom extends Applet implements ActionListener{
         
         //memanggil method bressenham
         Bressenham(g);
+        //DDA(g);
         
     }
     }
     
     
+//    public void DDA(Graphics g)
+//    {        
+//        x1                          =   Integer.parseInt(field_x1.getText());
+//        x2                          =   Integer.parseInt(field_x2.getText());
+//        y1                          =   Integer.parseInt(field_y1.getText());
+//        y2                          =   Integer.parseInt(field_y2.getText());
+//        
+//        int x                       =   x1;
+//        int y                       =   y1;
+//        
+//        dx                          =   x2 - x1;
+//        dy                          =   y2 - y1;
+//        
+//        
+//        
+//        if(Math.abs(dx) > Math.abs(dy))
+//        {
+//            step                    =   Math.abs(dx);
+////            x_inc                   =   dx/step;
+////            y_inc                   =   dy/step;
+//        }
+//        else
+//        {
+//            step                    =   Math.abs(dy);
+////            x_inc                   =   dx/step;
+////            y_inc                   =   dy/step;
+//        }
+//        
+//            x_inc                   =   dx/step;
+//            y_inc                   =   dy/step;        
+//            
+//            System.out.println("Step \t" + step + "X_inc \t = " + x_inc + "Y_inc \t = " + y_inc);
+//        do
+//        {
+//            x                       +=  x_inc;
+//            y                       +=  y_inc;
+//            
+//            g.setColor(Color.BLUE);
+//            g.fillRect(x , -y, 2, 2);            
+//            
+//            System.out.println(p + "\t" + x + "," + y);
+//        }while((x <= x2 || y <= y2));
+//        
+//        
+//        
+//    }
     
     public void Bressenham(Graphics g)
     {
@@ -256,7 +301,7 @@ public class Grafkom extends Applet implements ActionListener{
 
 }
     public static void main(String[] args) {
-        new Grafkom();
+        new Bressenham();
     }
 
 
