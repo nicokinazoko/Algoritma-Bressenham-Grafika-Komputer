@@ -35,10 +35,10 @@ public class Bressenham extends Applet implements ActionListener{
     //method baru untuk membuat kanvas 
     public Bressenham(){
         //set lokasi dari frame 
-        jFrame.setLocation(300,100);
+        jFrame.setLocation(200,200);
         
         //set ukuran frame 
-        jFrame.setSize(500,455);
+        jFrame.setSize(1000,800);
         
         //set exit default
         jFrame.setDefaultCloseOperation(jFrame.EXIT_ON_CLOSE);
@@ -50,7 +50,7 @@ public class Bressenham extends Applet implements ActionListener{
         jFrame.add(kanvas);
 
         //mengatur posisi dari kanvas
-        kanvas.setBounds(0,0,500,360);
+        kanvas.setBounds(0,0,1000,500);
         
         //menghtiung selisih dari xc dan yc
         xc                          =   kanvas.getWidth() - (kanvas.getWidth()/2);
@@ -58,33 +58,33 @@ public class Bressenham extends Applet implements ActionListener{
         
         //mengatur lokasi dari label
         jFrame.add(label_x1);
-        label_x1.setBounds(30, 365, 30, 20);
+        label_x1.setBounds(20, 500, 30, 20);
         
         jFrame.add(label_y1);
-        label_y1.setBounds(80, 365, 30, 20);
+        label_y1.setBounds(80, 500, 30, 20);
         
         jFrame.add(label_x2);
-        label_x2.setBounds(130, 365, 30, 20);
+        label_x2.setBounds(140, 500, 30, 20);
         
         jFrame.add(label_y2);
-        label_y2.setBounds(180, 365, 30, 20);
+        label_y2.setBounds(200, 500, 30, 20);
         
         //mengatur lokasi dari field
         jFrame.add(field_x1);
-        field_x1.setBounds(20, 390, 40, 20);
+        field_x1.setBounds(20, 600, 50, 20);
         
         jFrame.add(field_y1);
-        field_y1.setBounds(70, 390, 40, 20);
+        field_y1.setBounds(80, 600, 50, 20);
         
         jFrame.add(field_x2);
-        field_x2.setBounds(120, 390, 40, 20);
+        field_x2.setBounds(140, 600, 50, 20);
         
         jFrame.add(field_y2);
-        field_y2.setBounds(170, 390, 40, 20);
+        field_y2.setBounds(200, 600, 50, 20);
         
         //menambah button ke jframe
         jFrame.add(buttonProses);
-        buttonProses.setBounds(250, 370, 150, 40);
+        buttonProses.setBounds(600, 600, 150, 40);
         
         //membuat button agar bisa ditekan
 //        buttonProses.addActionListener(new ActionListener() {
@@ -147,53 +147,6 @@ public class Bressenham extends Applet implements ActionListener{
     }
     
     
-//    public void DDA(Graphics g)
-//    {        
-//        x1                          =   Integer.parseInt(field_x1.getText());
-//        x2                          =   Integer.parseInt(field_x2.getText());
-//        y1                          =   Integer.parseInt(field_y1.getText());
-//        y2                          =   Integer.parseInt(field_y2.getText());
-//        
-//        int x                       =   x1;
-//        int y                       =   y1;
-//        
-//        dx                          =   x2 - x1;
-//        dy                          =   y2 - y1;
-//        
-//        
-//        
-//        if(Math.abs(dx) > Math.abs(dy))
-//        {
-//            step                    =   Math.abs(dx);
-////            x_inc                   =   dx/step;
-////            y_inc                   =   dy/step;
-//        }
-//        else
-//        {
-//            step                    =   Math.abs(dy);
-////            x_inc                   =   dx/step;
-////            y_inc                   =   dy/step;
-//        }
-//        
-//            x_inc                   =   dx/step;
-//            y_inc                   =   dy/step;        
-//            
-//            System.out.println("Step \t" + step + "X_inc \t = " + x_inc + "Y_inc \t = " + y_inc);
-//        do
-//        {
-//            x                       +=  x_inc;
-//            y                       +=  y_inc;
-//            
-//            g.setColor(Color.BLUE);
-//            g.fillRect(x , -y, 2, 2);            
-//            
-//            System.out.println(p + "\t" + x + "," + y);
-//        }while((x <= x2 || y <= y2));
-//        
-//        
-//        
-//    }
-    
     public void Bressenham(Graphics g)
     {
         //konversi hasil dari input field ke integer
@@ -205,6 +158,7 @@ public class Bressenham extends Applet implements ActionListener{
         //mengecek apakah x1 > x2
         //jika iya maka lakukan pertukaran nilai agar nilai x1 lebih kecil dari x2 
         if(x1 > x2)
+        if(x1 > x2 && y1 > y2)
         {
             tmp                     =   x1;
             x1                      =   x2;
@@ -212,6 +166,20 @@ public class Bressenham extends Applet implements ActionListener{
             tmp                     =   y1;
             y1                      =   y2;
             y2                      =   tmp;
+        }        
+        else
+        if(x1 > x2)
+        {
+            tmp                     =   x1;
+            x1                      =   x2;
+            x2                      =   tmp;            
+        }
+        else
+        if(y1 > y2)
+        {
+            tmp                     =   y1;
+            y1                      =   y2;
+            y2                      =   tmp;            
         }
         
         dx                          =   x2 - x1;

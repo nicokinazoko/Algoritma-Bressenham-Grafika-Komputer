@@ -7,9 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class DDA extends Applet implements ActionListener{
+public class DDA_Translasi extends Applet implements ActionListener{
+ 
     //definisikan JFrame untuk GUI
-    JFrame jFrame               =   new JFrame("Garis DDA");
+    JFrame jFrame               =   new JFrame("Garis DDA Translasi");
     
     //memanggil method kanvas yang ada di sini
     Kanvas kanvas               =   new Kanvas();
@@ -19,21 +20,24 @@ public class DDA extends Applet implements ActionListener{
     JLabel  label_x2            =   new JLabel("x_2");
     JLabel  label_y1            =   new JLabel("y_1");
     JLabel  label_y2            =   new JLabel("y_2");
+    JLabel  label_x_trans       =   new JLabel("X Translasi");
+    JLabel  label_y_trans        =   new JLabel("Y Translasi");
     
     //membuat textfield untuk input x dan y
     JTextField  field_x1        =   new JTextField("");
     JTextField  field_x2        =   new JTextField("");
     JTextField  field_y1        =   new JTextField("");
     JTextField  field_y2        =   new JTextField("");
+    JTextField  field_x_trans   =   new JTextField("");
+    JTextField  field_y_trans   =   new JTextField("");
     
     //membuat button untuk memproses data input
     JButton buttonProses        =   new JButton("Proses");
     
     //deklarasi variabel yang akan digunakan
-    int x1,x2,y1,y2,p,xc,yc,tmp,dx,dy,step,xk,yk;
-
+    int xc,yc,x1,x2,y1,y2,p,tmp,dx,dy,step,x_inc,y_inc,xk,yk;
     //method baru untuk membuat kanvas 
-    public DDA(){
+    public DDA_Translasi(){
         //set lokasi dari frame 
         jFrame.setLocation(200,200);
         
@@ -69,6 +73,12 @@ public class DDA extends Applet implements ActionListener{
         jFrame.add(label_y2);
         label_y2.setBounds(200, 500, 30, 20);
         
+        jFrame.add(label_x_trans);
+        label_x_trans.setBounds(250, 500, 100, 20);
+        
+        jFrame.add(label_y_trans);
+        label_y_trans.setBounds(360, 500, 100, 20);        
+        
         //mengatur lokasi dari field
         jFrame.add(field_x1);
         field_x1.setBounds(20, 600, 50, 20);
@@ -80,7 +90,13 @@ public class DDA extends Applet implements ActionListener{
         field_x2.setBounds(140, 600, 50, 20);
         
         jFrame.add(field_y2);
-        field_y2.setBounds(200, 600, 50, 20);
+        field_y2.setBounds(200, 600, 30, 20);
+        
+        jFrame.add(field_x_trans);
+        field_x_trans.setBounds(250, 600, 100, 20);
+        
+        jFrame.add(field_y_trans);
+        field_y_trans.setBounds(370, 600, 100, 20);         
         
         //menambah button ke jframe
         jFrame.add(buttonProses);
@@ -106,6 +122,8 @@ public class DDA extends Applet implements ActionListener{
         field_x2.setHorizontalAlignment(JTextField.CENTER);
         field_y1.setHorizontalAlignment(JTextField.CENTER);
         field_y2.setHorizontalAlignment(JTextField.CENTER);
+        field_x_trans.setHorizontalAlignment(JTextField.CENTER);
+        field_y_trans.setHorizontalAlignment(JTextField.CENTER);
 
 
         jFrame.show();
@@ -141,24 +159,25 @@ public class DDA extends Applet implements ActionListener{
         
         //memanggil method bressenham
         //Bressenham(g);
-        DDA(g);
+        DDA_Tranlasi(g);
         
     }
     }
     
     
-    public void DDA(Graphics g)
+    public void DDA_Tranlasi(Graphics g)
     {        
-        double x_inc,y_inc;
+        int x_trans,y_trans;
         
         x1                          =   Integer.parseInt(field_x1.getText());
         x2                          =   Integer.parseInt(field_x2.getText());
         y1                          =   Integer.parseInt(field_y1.getText());
         y2                          =   Integer.parseInt(field_y2.getText());
+        x_trans                     =   Integer.parseInt(field_x_trans.getText());
+        y_trans                     =   Integer.parseInt(field_y_trans.getText());
         
         //mengecek apakah x1 > x2
         //jika iya maka lakukan pertukaran nilai agar nilai x1 lebih kecil dari x2 
-        
         if(x1 > x2 && y1 > y2)
         {
             tmp                     =   x1;
@@ -181,7 +200,7 @@ public class DDA extends Applet implements ActionListener{
             tmp                     =   y1;
             y1                      =   y2;
             y2                      =   tmp;            
-        }
+        }   
         
         int x                       =   x1 ;
         int y                       =   y1;
@@ -207,29 +226,28 @@ public class DDA extends Applet implements ActionListener{
             x_inc                   =   dx/step;
             y_inc                   =   dy/step;        
             
-            System.out.println("Dx =  " + dx + "\tDy = " + dy + "Step = " + step);
-            System.out.println("Step \t\n" + step + "X_inc \t = " + x_inc + "Y_inc \t = " + y_inc);
+            System.out.println("Step \t" + step + "X_inc \t = " + x_inc + "Y_inc \t = " + y_inc);
         do
         {
             x                       +=  x_inc;
             y                       +=  y_inc;
             
+            
+            //proses translasi di penggambaran
+            g.setColor(Color.RED);
+            g.fillRect(x + x_trans + xc , -y + y_trans + yc, 2, 2);            
+            
             g.setColor(Color.BLUE);
-            g.fillRect(x + xc , -y + yc, 2, 2);            
+            g.fillRect(x + xc , -y + yc, 2, 2);             
             
             System.out.println(p + "\t" + x + "," + y);
         }while((x <= x2 && y <= y2));
         
-        
-        
+       
+}
+    
+    public static void main(String[] args) {
+        new DDA_Translasi();
     }
     
-
-    public static void main(String[] args) {
-        new DDA();
-    }
-
-
-
 }
-

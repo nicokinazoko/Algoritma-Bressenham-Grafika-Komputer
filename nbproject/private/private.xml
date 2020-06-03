@@ -5,7 +5,11 @@
         <group>
             <file>file:/C:/Users/HP/Documents/NetBeansProjects/Grafkom/src/grafkom/Bressenham.java</file>
             <file>file:/C:/Users/HP/Documents/NetBeansProjects/Grafkom/src/grafkom/DDA.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/Grafkom/src/grafkom/DDA_Skala.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/Grafkom/src/grafkom/Bressenham_Translasi.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/Grafkom/src/grafkom/DDA_Translasi.java</file>
             <file>file:/C:/Users/HP/Documents/NetBeansProjects/Grafkom/src/grafkom/Menu.java</file>
+            <file>file:/C:/Users/HP/Documents/NetBeansProjects/Grafkom/src/grafkom/Bressenham_Skala.java</file>
         </group>
     </open-files>
 </project-private>
