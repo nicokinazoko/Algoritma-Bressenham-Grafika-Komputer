@@ -16,6 +16,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -93,11 +94,13 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonDDaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDDaActionPerformed
-        new DDA().setVisible(true);
+        new Menu_DDA().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_buttonDDaActionPerformed
 
     private void buttonBressenhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBressenhamActionPerformed
-        new Bressenham().setVisible(true);   
+        new Menu_Bressenham().setVisible(true);   
+        this.dispose();
     }//GEN-LAST:event_buttonBressenhamActionPerformed
 
     /**

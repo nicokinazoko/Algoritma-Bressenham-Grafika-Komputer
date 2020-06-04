@@ -146,7 +146,7 @@ public class DDA_Skala extends Applet implements ActionListener{
         else
         if(object   ==  buttonKembali)
         {
-            new Menu().setVisible(true);
+            new Menu_DDA().setVisible(true);
             jFrame.dispose();
         }
     }

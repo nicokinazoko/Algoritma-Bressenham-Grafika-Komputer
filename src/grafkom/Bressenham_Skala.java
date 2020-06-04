@@ -6,6 +6,7 @@ import java.awt.Event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import jdk.nashorn.internal.codegen.CompilerConstants;
 
 public class Bressenham_Skala extends Applet implements ActionListener{
     //definisikan JFrame untuk GUI
@@ -32,14 +33,17 @@ public class Bressenham_Skala extends Applet implements ActionListener{
     
     //membuat button untuk memproses data input
     JButton buttonProses        =   new JButton("Proses");
+    JButton buttonKembali       =   new JButton("Kembali");	    
     
     //deklarasi variabel yang akan digunakan
     int x1,x2,y1,y2,p,xc,yc,tmp,dx,dy,step,x_inc,y_inc,xk,yk;
 
     //method baru untuk membuat kanvas 
+    
     public Bressenham_Skala(){
         //set lokasi dari frame 
         jFrame.setLocation(200,200);
+        
         
         //set ukuran frame 
         jFrame.setSize(1000,800);
@@ -103,6 +107,9 @@ public class Bressenham_Skala extends Applet implements ActionListener{
         jFrame.add(buttonProses);
         buttonProses.setBounds(600, 600, 150, 40);
         
+        jFrame.add(buttonKembali);
+        buttonKembali.setBounds(600, 660, 150, 40);          
+        
         //membuat button agar bisa ditekan
 //        buttonProses.addActionListener(new ActionListener() {
 //            @Override
@@ -117,6 +124,7 @@ public class Bressenham_Skala extends Applet implements ActionListener{
 //        });
 
         buttonProses.addActionListener(this);
+        buttonKembali.addActionListener(this);
         
         //mengatur posisi allignment field
         field_x1.setHorizontalAlignment(JTextField.CENTER);
@@ -137,6 +145,12 @@ public class Bressenham_Skala extends Applet implements ActionListener{
         {
             kanvas.repaint();
         }
+        else
+        if(object   ==  buttonKembali)
+        {
+            new Menu_DDA().setVisible(true);
+            jFrame.dispose();
+        }        
     }
     
     
@@ -295,6 +309,7 @@ public class Bressenham_Skala extends Applet implements ActionListener{
 }
     public static void main(String[] args) {
         new Bressenham_Skala();
+        
     }
 
 
