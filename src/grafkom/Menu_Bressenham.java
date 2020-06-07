@@ -18,6 +18,7 @@ public class Menu_Bressenham extends javax.swing.JFrame {
         initComponents();
         
         this.setLocationRelativeTo(null);
+        setTitle("Menu Bressenham");
     }
 
     /**

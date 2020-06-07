@@ -17,6 +17,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
+        setTitle("Menu Utama");
     }
 
     /**

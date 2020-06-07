@@ -127,7 +127,7 @@ public class Bressenham extends Applet implements ActionListener{
         else
         if(object   ==  buttonKembali)
         {
-            new Menu_DDA().setVisible(true);
+            new Menu_Bressenham().setVisible(true);
             jFrame.dispose();
         }        
     }

@@ -16,7 +16,8 @@ public class Menu_DDA extends javax.swing.JFrame {
      */
     public Menu_DDA() {
         initComponents();
-        this.setLocationRelativeTo(null);        
+        this.setLocationRelativeTo(null); 
+        setTitle("Menu DDA");
     }
 
     /**
