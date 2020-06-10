@@ -5,6 +5,7 @@ import java.applet.Applet;
 import java.awt.Event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static java.lang.Math.round;
 import javax.swing.*;
 
 public class DDA extends Applet implements ActionListener{
@@ -218,8 +219,8 @@ public class DDA extends Applet implements ActionListener{
             x_inc                   =   dx/step;
             y_inc                   =   dy/step;        
             
-            System.out.println("Dx =  " + dx + "\tDy = " + dy + "Step = " + step);
-            System.out.println("Step \t\n" + step + "X_inc \t = " + x_inc + "Y_inc \t = " + y_inc);
+            System.out.println("Dx =  " + dx + "\tDy = " + dy + "\tStep = " + step);
+            System.out.println("Step \t" + step + "\nX_inc \t = " + x_inc + "\nY_inc \t = " + y_inc);
         do
         {
             x                       +=  x_inc;

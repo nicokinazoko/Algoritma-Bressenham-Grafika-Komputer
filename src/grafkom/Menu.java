@@ -5,6 +5,9 @@
  */
 package grafkom;
 
+import static java.lang.System.exit;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author HP
@@ -29,10 +32,19 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonBressenham1 = new javax.swing.JButton();
         panelMenu = new javax.swing.JPanel();
         buttonBressenham = new javax.swing.JButton();
         buttonDDa = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        buttonKeluar = new javax.swing.JButton();
+
+        buttonBressenham1.setText("ALGORITMA BRESSENHAM");
+        buttonBressenham1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBressenham1ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +64,13 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel1.setText("MENU PILIHAN METODE PEMBENTUKAN GARIS");
 
+        buttonKeluar.setText("EXIT PROGRAM");
+        buttonKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonKeluarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
         panelMenuLayout.setHorizontalGroup(
@@ -63,9 +82,10 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(81, 81, 81))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createSequentialGroup()
-                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonBressenham)
-                            .addComponent(buttonDDa, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buttonBressenham, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonDDa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(132, 132, 132))))
         );
         panelMenuLayout.setVerticalGroup(
@@ -77,7 +97,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(buttonDDa)
                 .addGap(33, 33, 33)
                 .addComponent(buttonBressenham)
-                .addGap(115, 115, 115))
+                .addGap(32, 32, 32)
+                .addComponent(buttonKeluar)
+                .addGap(58, 58, 58))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -103,6 +125,19 @@ public class Menu extends javax.swing.JFrame {
         new Menu_Bressenham().setVisible(true);   
         this.dispose();
     }//GEN-LAST:event_buttonBressenhamActionPerformed
+
+    private void buttonBressenham1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBressenham1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonBressenham1ActionPerformed
+
+    private void buttonKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKeluarActionPerformed
+        int jawab       =   JOptionPane.showConfirmDialog(null, "Apakah Yakin ingin Keluar ?", "Peringatan", JOptionPane.YES_NO_OPTION);
+        if(jawab == JOptionPane.YES_OPTION)
+        {
+            exit(0);
+        }
+        
+    }//GEN-LAST:event_buttonKeluarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,7 +177,9 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonBressenham;
+    private javax.swing.JButton buttonBressenham1;
     private javax.swing.JButton buttonDDa;
+    private javax.swing.JButton buttonKeluar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel panelMenu;
     // End of variables declaration//GEN-END:variables
