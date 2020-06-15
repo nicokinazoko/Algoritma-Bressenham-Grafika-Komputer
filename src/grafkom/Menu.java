@@ -134,7 +134,7 @@ public class Menu extends javax.swing.JFrame {
         int jawab       =   JOptionPane.showConfirmDialog(null, "Apakah Yakin ingin Keluar ?", "Peringatan", JOptionPane.YES_NO_OPTION);
         if(jawab == JOptionPane.YES_OPTION)
         {
-            exit(0);
+            exit(0);    
         }
         
     }//GEN-LAST:event_buttonKeluarActionPerformed
